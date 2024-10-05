@@ -11,4 +11,5 @@ to download used packages
 after that use 
 # npx nodemon app 
 
-access [use this](http://localhost:3000)
+use localhost:3000 to access website
+

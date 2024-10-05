@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <title>Login</title>
+    <%- include("_css") %>
+
+</head>
+<body style="background-color: gray;">
+    <div class="container">
+        <h1>Login</h1>
+        <div class="container">
+            <% if (error) { %>
+                <p style="color: red; background-color: black;"><%= error %></p>
+            <% } %>
+        </div>
+        <form id="form" action="/login" method="POST">
+            <div class="form-group">
+                <label for="inputname">Name</label>
+                <input type="text" name="name" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="Password">Password</label>
+                <input type="password" name="password" class="form-control">
+            </div>
+
+            <div class="form-group">
+            
+                <label for="">Security Image</label>
+                <div style="margin: 5px;" class="d-flex p-3 border">
+                    <div class="g-recaptcha" data-sitekey="6Lf2UVgqAAAAANwF8z6dnHdpfP9PUZy8h8ZPJpLy"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button class="rounded" type="submit">Login</button>
+            </div>
+        </form>
+
+        <div class="container" style="border: 5px;">
+            <a>Dont have an account <a href="/register" style="color: rgb(13, 0, 255);">Register</a></a>
+        </div>
+    </div>
+    <%- include("_body") %>
+</body>
+</html>

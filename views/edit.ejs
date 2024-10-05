@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+    <%- include("_css") %>
+
+</head>
+<body style="background-color: gray;">
+    <div class="container">
+        <div style="padding: 10px;">
+            <button><a href="/users">Back</a></button>
+        </div>
+        <h1>Register</h1>
+        <div class="container">
+            <% if (error) { %>
+                <p style="color: red; background-color: black;"><%= error %></p>
+            <% } %>
+        </div>
+        <form action="/users/edit/<%= data.id %>" method="POST">
+            <div class="form-group">
+                <label for="userbane">username</label>
+                <input value="<%= data.username %>" type="text" name="username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input placeholder="leave it blank if you don't want to change password" type="password" name="password" class="form-control">
+            </div>
+            <div class="form-group">
+                <button value="<%= data.id %>" type="submit">Edit</button>
+            </div>
+        </form>
+    <%- include("_body") %>
+</body>
+</html>

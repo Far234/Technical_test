@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #e6dede;
+        }
+        button {
+            margin: 0 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body style="background-color: gray;">
+    <div>
+        <button><a href="/login">Back</a></button>
+    </div>
+    <h2>User Management</h2>
+    <div class="container">
+        <% if (error) { %>
+            <p style="color: red; background-color: black;"><%= error %></p>
+        <% } %>
+    </div>
+    <div class="container">
+        <% if (success) { %>
+            <p style="color: rgb(12, 238, 31); background-color: black;"><%= success %></p>
+        <% } %>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Register Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+         <% data.forEach((el, idx)=>{%>
+            <tr>
+                <td><%= idx + 1 %></td>
+                <td><%= el.username %></td>
+                <td><%= el.password %></td>
+                <td><%= el.createdAt.toDateString() %></td>
+                <td>
+                    <button><a href="/users/edit/<%= el.id %>">Edit</a></button>
+                    <button><a href="/users/delete/<%= el.id %>">Delete</a></button>
+                </td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>
